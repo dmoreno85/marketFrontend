@@ -11,6 +11,7 @@ import Login from './views/Login/Login';
 import Register from './views/Register/Register';
 import Header from './components/header/header';
 import Footer from './components/footer/footer';
+import Congrats from './views/Congrats/Congrats';
 
 
 function App(props) {
@@ -22,7 +23,8 @@ function App(props) {
         <Route path='/' exact component={AllItems}/>
         <Route path='/item/:id' exact component={DetailsItem}/>
         <Route path='/login/' exact component={Login}/>
-        <Route path="/register/" exact component={Register} />
+        <Route path="/register/" exact component={Register}/>
+        <Route path="/congrats/" exact component={Congrats}/>
         <Redirect path='/' exact to='/allItems/' />
         <Route component={NotFound}/>
       </Switch>

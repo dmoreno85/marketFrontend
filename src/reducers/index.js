@@ -1,9 +1,11 @@
-import { combineReducers } from 'redux'
+import {combineReducers} from 'redux'
 
-//Dependencias de Reducers
+//Reducer Dependencies
+import item from './item'
+import items from '/items'
 
 
-// Exportamos CombineReducers donde alojaremos todos los reducers
 export default combineReducers({
-
+    item,
+    items,
 });
