@@ -1,6 +1,7 @@
 const INITIAL_STATE = {
     id: 0,
     title: "",
+    poster_path:"",
     price: 0,
     image: ""
 }

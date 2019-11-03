@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     items: [],
 }
 
-const items = (state = INITIAL_STATE, action )=>{
+const detailItems= (state = INITIAL_STATE, action )=>{
     switch(action.type){
         case 'DETAIL_ITEMS':
             return{
@@ -14,4 +14,4 @@ const items = (state = INITIAL_STATE, action )=>{
     }
 }
 
-export default items;
+export default detailItems;
