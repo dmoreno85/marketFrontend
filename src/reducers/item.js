@@ -10,10 +10,7 @@ const item = (state = INITIAL_STATE, action) => {
         case 'ALL_ITEM':
             return {
                 ...state,
-                id: action.payload.id,
-                    title: action.payload.title,
-                    price: action.payload.price,
-                    image: action.payload.image
+                items:action.payload
             }
             default:
                 return state;
