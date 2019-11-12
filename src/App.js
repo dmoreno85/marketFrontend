@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { connect } from 'react-redux';
 import {BrowserRouter,Switch, Route, Redirect} from 'react-router-dom';
 
@@ -21,7 +21,7 @@ function App(props) {
       <Header/>
       <Switch>
         <Route path='/' exact component={AllItems}/>
-        <Route path='/item/:id' exact component={DetailsItem}/>
+        <Route path='/items/:id' exact component={DetailsItem}/>
         <Route path='/login/' exact component={Login}/>
         <Route path="/register/" exact component={Register}/>
         <Route path="/congrats/" exact component={Congrats}/>

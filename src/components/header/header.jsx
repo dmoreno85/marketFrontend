@@ -1,16 +1,31 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
-import Search from '../search/search';
 
-function header(){
-return (
-    <header className='header'>
-      <h1>Market</h1>
-      <Search/>
-      <NavLink to="/">home</NavLink>
-      <NavLink to="/login">login</NavLink>
-      <NavLink to="/register">register</NavLink>
-    </header>
-  );}
+import {Navbar, Nav, NavDropdown} from 'react-bootstrap'
 
-  export default header;
+
+function header() {
+  return (
+  
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/">HOME</NavDropdown.Item>
+              <NavDropdown.Item href="/register">REGISTER</NavDropdown.Item>
+
+              <NavDropdown.Divider />
+
+            </NavDropdown>
+          </Nav>
+        
+        </Navbar.Collapse>
+      </Navbar>
+   
+  );
+}
+
+export default header;

@@ -1,0 +1,13 @@
+/* .AllItems{
+    display: grid;
+    width: 100vw;
+    min-height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10vh 1fr 5vh;
+    grid-gap: 1vw;
+    
+} */
+
+.card{
+    align-items: center;
+}
