@@ -15,15 +15,17 @@ import { detailItem } from '../../redux/actions/items.action'
 class AllItems extends React.Component {
 
     componentDidMount() {
-
         this.props.getItem()
     }
 
+    handleSearch=(search)=>{
+console.log(search)
+    }
     render(props) {
 
         return (
             <div>
-                <Search />
+                <Search handleSearch = {this.handleSearch}/>
                 <CardDeck>
 
                     {this.props.items.map(item => (
