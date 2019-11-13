@@ -1,5 +1,6 @@
 import React from 'react';
 import {Form, Button, Modal} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 class Register extends React.Component {
   render() {
     return (
@@ -24,9 +25,11 @@ class Register extends React.Component {
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
+  <Link to={'/congrats'}>
   <Button variant="primary" type="submit">
-    Submit
+    Register
   </Button>
+    </Link>
 </Form>
   </Modal.Body>
 
