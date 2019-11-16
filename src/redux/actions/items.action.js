@@ -21,7 +21,6 @@ export  const  detailItem = (id) =>
     
      (dispatch) => {
     // console.log('entrando en detalles' + id);
-    //  var ID =id
     axios.get(`http://localhost:8080/api/v1/items/${id}`) 
         .then(res => {
 
@@ -50,3 +49,4 @@ export  const  detailItem = (id) =>
             console.log(error)
         })
 }
+

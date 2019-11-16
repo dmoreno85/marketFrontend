@@ -4,46 +4,54 @@ import { connect } from 'react-redux';
 
 
 import { Link } from 'react-router-dom';
-import { CardDeck, Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import './Allitems.css';
 import Search from '../../components/search/search'
-import { getItem } from '../../redux/actions/items.action'
-import { detailItem } from '../../redux/actions/items.action'
+
+import { detailItem, getItem } from '../../redux/actions/items.action'
 
 
 
 class AllItems extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            search: ""
+        }
+    }
     componentDidMount() {
+
         this.props.getItem()
     }
-
-    handleSearch=(search)=>{
-console.log(search)
+    handleChange(event) {
+        event.preventDefault()
+        this.setState({ search: event.target.value });
     }
+
     render(props) {
-
+     
+        let filteredItems = this.props.items.filter((item) => {
+          return item.model.toLowerCase().includes(this.state.search.toLowerCase())
+        })
         return (
-            <div>
-                <Search handleSearch = {this.handleSearch}/>
-                <CardDeck>
+            <div className="content">
+                <Search handleSearch={this.handleChange.bind(this)} search={this.state.search} />
 
-                    {this.props.items.map(item => (
+                <div className="grid-deck">
+
+                    {filteredItems.map(item => (
                         <Link to={'/items/' + item.id} key={item.id}>
 
                             <Card style={{ width: '18rem' }}  >
                                 <Card.Title>{item.model}</Card.Title>
                                 <Card.Img variant="top" src={item.path} style={{ backgroundSize: 'cover', maxWidth: '115px', height: '200px' }} />
                                 <Card.Body>
-
                                     <Card.Text>{item.price} €</Card.Text>
-
-
                                 </Card.Body>
                             </Card>
                         </Link>))}
 
-                </CardDeck>
+                </div>
             </div>
         );
     }
@@ -58,7 +66,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     getItem: (tag) => dispatch(getItem(tag)),
-    detailItem: (id) => dispatch(detailItem(id))
+    detailItem: (id) => dispatch(detailItem(id)),
+
 })
 
 

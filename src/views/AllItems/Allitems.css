@@ -11,3 +11,12 @@
 .card{
     align-items: center;
 }
+
+.content{
+    min-height: 80vh;
+}
+
+.grid-deck{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}

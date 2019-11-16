@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { detailItem } from '../../redux/actions/items.action'
-import { Card, Button, Row, Col, } from 'react-bootstrap'
+import { Card, Button} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 class DetailsItem extends React.Component {
@@ -17,7 +17,8 @@ class DetailsItem extends React.Component {
     render(props) {
         const item = this.props.data.item;
         return (
-          
+          <div>
+    
                 <Card style={{ width: '18rem', display: 'flex' }}>
                      <Card.Body>
                         <Card.Title>{item.model}</Card.Title>
@@ -32,7 +33,7 @@ class DetailsItem extends React.Component {
                         <Card.Text>Color: {item.color} </Card.Text>
                         <Card.Text>In Stock: {item.stockUnits}</Card.Text>
                         <Card.Text>Price: {item.price} €</Card.Text>
-                        <Link to={'/register'}>
+                        <Link to={'/register' + item.id}>
                         <Button variant="primary">Purchase</Button>
                         </Link>
                     </Card.Body>
@@ -40,7 +41,7 @@ class DetailsItem extends React.Component {
 
                 </Card>
             
-
+                </div>
         );
     }
 

@@ -30,6 +30,7 @@ export const item = (state = INITIAL_STATE, action) => {
                     ...state,
                     item: action.payload,
                 }
+           
                 default:
                     return state;
     }

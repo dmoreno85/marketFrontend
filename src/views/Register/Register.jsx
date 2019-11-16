@@ -1,11 +1,14 @@
 import React from 'react';
-import {Form, Button, Modal} from 'react-bootstrap'
-import {Link} from 'react-router-dom'
+// import {Form, Button, Modal} from 'react-bootstrap'
+// import {Link} from 'react-router-dom'
 class Register extends React.Component {
   render() {
+
+    // localStorage.setItem("prop user", "token dsfs")
     return (
       <div className="register">
-        <Modal.Dialog>
+        <p>register</p>
+        {/* <Modal.Dialog>
 
 
   <Modal.Body>
@@ -35,7 +38,7 @@ class Register extends React.Component {
 
  
 </Modal.Dialog>
-     
+      */}
       </div>
 
     );
