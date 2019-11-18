@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { detailItem } from '../../redux/actions/items.action'
-import { Card, Button} from 'react-bootstrap'
+import M from 'materialize-css'
 import {Link} from 'react-router-dom'
 
 class DetailsItem extends React.Component {
@@ -17,9 +17,41 @@ class DetailsItem extends React.Component {
     render(props) {
         const item = this.props.data.item;
         return (
-          <div>
-    
-                <Card style={{ width: '18rem', display: 'flex' }}>
+          
+     <div class="col s12 m7 container">
+    <h2 class="header">Details Product</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src={item.path} className="responsive-img"/>
+      </div>
+      <div class="card-stacked">
+      <span class="card-title">{item.model}</span>
+        <div class="card-content left-align container ">
+        <p>Display: {item.display}"</p>
+        <p>ROM: {item.rom} gb</p>
+        <p>RAM: {item.ram}</p>
+        <p>Core: {item.core} to {item.gh}gh</p>
+        <p>Camera: {item.mp} megapixels</p>
+        <p>Color: {item.color}</p>
+        <p>In Stock: {item.stockUnits}</p>
+        <p>Price: {item.price} €</p>
+        </div>
+        
+        {/* <Link to={"/login" + item.id}> */}
+        <div class="card-action green accent-3 container">
+          <Link to={"/login/"}> <span>PURCHASE</span></Link>
+        </div>
+        {/* <button className="btn waves-effect waves-light" type="submit" name="action">Purchase
+    <i class="material-icons right">send</i>
+  </button> */}
+  {/* </Liknk> */}
+      </div>
+    </div>
+  
+
+
+
+                {/* <Card style={{ width: '18rem', display: 'flex' }}>
                      <Card.Body>
                         <Card.Title>{item.model}</Card.Title>
                         <Card.Img variant="top" src={item.path} style={{ backgroundSize: 'cover', maxWidth: '115px', height: '200px' }} />
@@ -39,7 +71,7 @@ class DetailsItem extends React.Component {
                     </Card.Body>
 
 
-                </Card>
+                </Card> */}
             
                 </div>
         );

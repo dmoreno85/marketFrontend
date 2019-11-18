@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import M from 'materialize-css'
 import { connect } from 'react-redux';
 import {BrowserRouter,Switch, Route, Redirect} from 'react-router-dom';
 

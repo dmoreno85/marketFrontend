@@ -7,7 +7,7 @@
     grid-gap: 1vw;
     
 } */
-
+/* 
 .card{
     align-items: center;
 }
@@ -19,4 +19,10 @@
 .grid-deck{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+} */
+
+.imgCard{
+    background-size: cover;
+    width: 115px;
+    height: 200px;
 }
