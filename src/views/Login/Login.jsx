@@ -1,5 +1,5 @@
 import React from 'react';
-import M from 'materialize-css'
+import { Link } from 'react-router-dom'
 import 'materialize-css/dist/css/materialize.min.css'
 
 import { connect } from 'react-redux';
@@ -31,10 +31,19 @@ class Login extends React.Component {
     //     }
     //   }
 
-    submitForm = (email, password) => {
-        // event.preventDefault();
+    submitForm = async (event) => {
+        event.preventDefault();
         // this.props.dispatch(loginUser(this.state))
-        this.props.loginUser(this.state.email, this.state.password)
+        this.props.loginUser(this.state.email, this.state.password).then(
+            () => {
+
+                this.props.history.push('/congrats')
+            }
+        ).catch(() => {
+            // console.log('login invalid');
+            alert('Email or Password invalid')
+
+        })
     };
 
 
@@ -42,33 +51,35 @@ class Login extends React.Component {
     //     this.props.getToken(email, password)
     // }
 
-    render() {
+    render(props) {
         // let user=this.props.user
+        // {console.log()}
         return (
-
             <div className="section container" >
                 <div className="row">
-                    <form className="col s12 card-panel"onSubmit={this.submitForm} >
+                    <form className="col s12 card-panel" onSubmit={this.submitForm} >
                         <h3>LOGIN</h3>
 
                         <div className="row  ">
 
                             <div className="input-field col s12 ">
-                                <input type="email" id="email" className="validate"   value={this.state.email}
-                            onChange={this.handleInputEmail}/>
+                                <input type="email" id="email" className="validate" value={this.state.email}
+                                    onChange={this.handleInputEmail} />
                                 <label htmlFor="email">Email</label>
                             </div>
                         </div>
                         <div className="row  ">
 
                             <div className="input-field col s12">
-                                <input type="password" id="password" className="validate"   value={this.state.password}
-                            onChange={this.handleInputpassword}/>
+                                <input type="password" id="password" className="validate" value={this.state.password}
+                                    onChange={this.handleInputpassword} />
                                 <label htmlFor="password">Password</label>
                             </div>
                         </div>
-                        <div className="row container col s6"><button className="btn " type="submit">Submit</button></div>
-      {/* <div className="error">{
+                        <div className="row container col s6 ">
+                            <button className="btn " type="submit" >Submit</button>
+                        </div>
+                        {/* <div className="error">{
                         user.login ?
                             <div>{user.login.message}</div> : null
                     }</div> */}
@@ -125,7 +136,7 @@ const mapStateToProps = state => ({
 
 
 const mapDispatchToProps = dispatch => ({
-    loginUser: (email, password) => dispatch(loginUser(email, password)),
+    loginUser: loginUser(dispatch)
 
 
 })

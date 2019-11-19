@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import M from 'materialize-css'
 import { connect } from 'react-redux';
-import {BrowserRouter,Switch, Route, Redirect} from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
 import NotFound from './views/NotFound/NotFound';
 import AllItems from './views/AllItems/AllItems';
@@ -18,17 +18,19 @@ function App(props) {
   return (
     <div className="App">
       <BrowserRouter>
-      <Header/>
-      <Switch>
-        <Route path='/' exact component={AllItems}/>
-        <Route path='/items/:id' exact component={DetailsItem}/>
-        <Route path='/login/' exact component={Login}/>
-        <Route path="/register/" exact component={Register}/>
-        <Route path="/congrats/" exact component={Congrats}/>
-        <Redirect path='/' exact to='/allItems/' />
-        <Route component={NotFound}/>
-      </Switch>
-      <Footer/>
+        <Header />
+        <div className="main">
+          <Switch>
+            <Route path='/' exact component={AllItems} />
+            <Route path='/items/:id' exact component={DetailsItem} />
+            <Route path='/login/:id' exact component={Login} />
+            <Route path="/register/" exact component={Register} />
+            <Route path="/congrats/" exact component={Congrats} />
+            <Redirect path='/' exact to='/allItems/' />
+            <Route component={NotFound} />
+          </Switch>
+        </div>
+        <Footer />
       </BrowserRouter>
     </div>
   );

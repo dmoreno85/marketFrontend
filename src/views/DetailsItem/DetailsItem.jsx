@@ -18,14 +18,14 @@ class DetailsItem extends React.Component {
         const item = this.props.data.item;
         return (
           
-     <div class="col s12 m7 container">
+     <div class="col s12 m7 container center-align">
     <h2 class="header">Details Product</h2>
     <div class="card horizontal">
       <div class="card-image">
         <img src={item.path} className="responsive-img"/>
       </div>
       <div class="card-stacked">
-      <span class="card-title">{item.model}</span>
+      <span class="card-title center-align">{item.model}</span>
         <div class="card-content left-align container ">
         <p>Display: {item.display}"</p>
         <p>ROM: {item.rom} gb</p>
@@ -38,8 +38,8 @@ class DetailsItem extends React.Component {
         </div>
         
         {/* <Link to={"/login" + item.id}> */}
-        <div class="card-action green accent-3 container">
-          <Link to={"/login/"}> <span>PURCHASE</span></Link>
+        <div class="card-action green accent-3 container center-align">
+          <Link to={"/login/" + item.id}> <span>PURCHASE</span></Link>
         </div>
         {/* <button className="btn waves-effect waves-light" type="submit" name="action">Purchase
     <i class="material-icons right">send</i>

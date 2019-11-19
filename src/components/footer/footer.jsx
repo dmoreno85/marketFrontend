@@ -3,10 +3,11 @@ import React from 'react'
 
 function footer(){
 return (
-    <div className='NotFound'>
-      <h1>Footer</h1>
-     
-    </div>
+  <footer className="page-footer green accent-3 ">
+  
+    © 2019 Copyright 
+   
+</footer>
   );}
 
   export default footer;

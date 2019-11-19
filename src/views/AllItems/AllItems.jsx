@@ -44,12 +44,13 @@ class AllItems extends React.Component {
 
 
                                 <div class="card ">
-                                    <h6 className="">{item.model}</h6>
-                                    <div className="card-image">
-                                        <img src="https://picsum.photos/200" className="responsive-img" />
+                                    <h6 className="product-title">{item.model}</h6>
+                                    <div className="card-image imgCard" style={{backgroundImage:`url(${item.path})`}}>
+                                        {/* <img src="https://picsum.photos/200" className="responsive-img" /> */}
+                                        {/* <img src={item.path} className=" imgCard"/> */}
                                     </div>
                                     <div className="card-content">
-                                        <p>{item.price}</p>
+                                        <p>{item.price} €</p>
                                     </div>
                                     {/* <div className="card-action">
           <a href="#">This is a link</a>

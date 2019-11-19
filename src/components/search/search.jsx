@@ -11,13 +11,18 @@ class Search extends React.Component {
     render() {
 
         return (
-            <div >
+            <div className="container section ">
+                {/* <i className="material-icons left">
+search
+</i> */}
                 <input type="text"
                     placeholder="Search"
                     className="search"
                     onChange={(event) => this.props.handleSearch(event)}
                     value={this.props.search}
+                    id="search"
                 />
+                   {/* <label htmlFor="search">Search</label> */}
             </div>
         )
     }

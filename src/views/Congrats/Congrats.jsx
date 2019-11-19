@@ -3,7 +3,7 @@ import React from 'react';
 function Congrats(){
     return(
         <div className="Congrats">
-            <span>Congrats</span>
+            <h1>Congrats</h1>
         </div>
     )
 
