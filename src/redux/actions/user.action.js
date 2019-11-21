@@ -8,5 +8,7 @@ export const loginUser = (dispatch) => (email, password) => {
         })
         .then(res => {
             localStorage.setItem("token", res.data)
+          
+
         })
 }

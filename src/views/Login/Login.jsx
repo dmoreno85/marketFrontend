@@ -13,6 +13,8 @@ class Login extends React.Component {
             error: "",
             succes: false,
         }
+        this.res = this.props.res
+
     }
     handleInputEmail = event => {
         this.setState({
@@ -34,16 +36,17 @@ class Login extends React.Component {
     submitForm = async (event) => {
         event.preventDefault();
         // this.props.dispatch(loginUser(this.state))
-        this.props.loginUser(this.state.email, this.state.password).then(
-            () => {
+        this.props.loginUser(this.state.email, this.state.password)
+            .then(() => {
 
                 this.props.history.push('/congrats')
             }
-        ).catch(() => {
-            // console.log('login invalid');
-            alert('Email or Password invalid')
+            ).catch(() => {
+                // console.log('login invalid');
+                alert('Email or Password invalid')
 
-        })
+
+            })
     };
 
 
@@ -53,14 +56,14 @@ class Login extends React.Component {
 
     render(props) {
         // let user=this.props.user
-        // {console.log()}
+        // console.log(this.res)
         return (
             <div className="section container" >
                 <div className="row">
-                    <form className="col s12 card-panel" onSubmit={this.submitForm} >
+                    <form className="col s12" onSubmit={this.submitForm} >
                         <h3>LOGIN</h3>
 
-                        <div className="row  ">
+                        <div className="row ">
 
                             <div className="input-field col s12 ">
                                 <input type="email" id="email" className="validate" value={this.state.email}
@@ -68,8 +71,7 @@ class Login extends React.Component {
                                 <label htmlFor="email">Email</label>
                             </div>
                         </div>
-                        <div className="row  ">
-
+                        <div className="row">
                             <div className="input-field col s12">
                                 <input type="password" id="password" className="validate" value={this.state.password}
                                     onChange={this.handleInputpassword} />

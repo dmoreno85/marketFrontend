@@ -1,12 +1,39 @@
 import React from 'react';
 
-function Congrats(){
-    return(
-        <div className="Congrats">
-            <h1>Congrats</h1>
-        </div>
-    )
+import { connect } from 'react-redux';
+import { loginUser } from '../../redux/actions/user.action'
+
+class Congrats extends React.Component {
+    constructor(props) {
+        super(props)
+
+
+    }
+    // console.log(loginUser);
+    render() {
+        console.log(this.props.user)
+
+        return (
+            <div className="Congrats">
+                <h1>Congrats</h1>
+            </div>
+        )
+
+
+    }
+
 
 }
 
-export default Congrats;
+
+const mapStateToProps = state => ({
+    user: state.user
+
+})
+
+
+export default connect(
+    mapStateToProps,
+
+)(Congrats);
+

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import M from 'materialize-css'
+
 
 import './header.css'
 
@@ -24,7 +24,7 @@ function header() {
                  <i className="material-icons right">person_outline</i></Link></li>
             </ul>
             <ul className="dropdown-content" id="id_drop">
-        <li><Link to="/login/">Login</Link></li>
+        <li><Link to={"/login/"}>Login</Link></li>
         <li><Link to="/register">Register</Link></li>
       </ul>
           </div>

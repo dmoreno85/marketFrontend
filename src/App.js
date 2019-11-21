@@ -24,6 +24,7 @@ function App(props) {
             <Route path='/' exact component={AllItems} />
             <Route path='/items/:id' exact component={DetailsItem} />
             <Route path='/login/:id' exact component={Login} />
+            <Route path='/login/' exact component={Login} />
             <Route path="/register/" exact component={Register} />
             <Route path="/congrats/" exact component={Congrats} />
             <Redirect path='/' exact to='/allItems/' />

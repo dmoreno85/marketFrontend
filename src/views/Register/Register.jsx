@@ -7,7 +7,7 @@ class Register extends React.Component {
     // localStorage.setItem("prop user", "token dsfs")
     return (
       <div className="register">
-        <p>register</p>
+        <h1>REGISTER</h1>
         {/* <Modal.Dialog>
 
 
