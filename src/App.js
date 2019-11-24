@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import M from 'materialize-css'
+
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
@@ -23,10 +23,10 @@ function App(props) {
           <Switch>
             <Route path='/' exact component={AllItems} />
             <Route path='/items/:id' exact component={DetailsItem} />
-            <Route path='/login/:id' exact component={Login} />
+            <Route path='/login/:email' exact component={Login} />
             <Route path='/login/' exact component={Login} />
             <Route path="/register/" exact component={Register} />
-            <Route path="/congrats/" exact component={Congrats} />
+            <Route path="/congrats/:email" exact component={Congrats} />
             <Redirect path='/' exact to='/allItems/' />
             <Route component={NotFound} />
           </Switch>

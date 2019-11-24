@@ -5,6 +5,9 @@
   min-height: 100vh;
   
 }
+.modal{
+  overflow: hidden !important;
+}
 .App > .main {
   flex:1;
 }

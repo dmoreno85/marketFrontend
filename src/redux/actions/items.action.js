@@ -1,11 +1,12 @@
 import axios from 'axios';
 
 
+
 export const getItem = (tag) => (dispatch) => {
 
     axios.get(`http://localhost:8080/api/v1/items`)
         .then(res => {
-            // console.log(res.data);
+            //  console.log(res.data);
             dispatch({
                 type: 'ALL_ITEM',
                 payload: res.data,
@@ -16,37 +17,63 @@ export const getItem = (tag) => (dispatch) => {
         })
 }
 
-export  const  detailItem = (id) => 
-    
-    
-     (dispatch) => {
-    // console.log('entrando en detalles' + id);
-    axios.get(`http://localhost:8080/api/v1/items/${id}`) 
-        .then(res => {
+export const detailItem = (id) =>
 
-            // console.log('HOLAAAA DETALLES DENTROOOOO'+ JSON.stringify(res.data));
-          
-            dispatch({
-                type: 'DETAIL_ITEMS',
-                payload: {
 
-                    id: res.data.id,
-                    model: res.data.model,
-                    price: res.data.price,
-                    display:res.data.display,
-                    rom: res.data.rom,
-                    ram: res.data.ram,
-                    core:res.data.core,
-                    gh:res.data.gh,
-                    mp:res.data.mp,
-                    color: res.data.color,
-                    path: res.data.path,
-                    stockUnits: res.data.stockUnits,
-                }
+    (dispatch) => {
+        // console.log('entrando en detalles' + id);
+        axios.get(`http://localhost:8080/api/v1/items/${id}`)
+            .then(res => {
+
+                // console.log('HOLAAAA DETALLES DENTROOOOO'+ JSON.stringify(res.data));
+
+                dispatch({
+                    type: 'DETAIL_ITEMS',
+                    payload: {
+
+                        id: res.data.id,
+                        model: res.data.model,
+                        price: res.data.price,
+                        display: res.data.display,
+                        rom: res.data.rom,
+                        ram: res.data.ram,
+                        core: res.data.core,
+                        gh: res.data.gh,
+                        mp: res.data.mp,
+                        color: res.data.color,
+                        path: res.data.path,
+                        stockUnits: res.data.stockUnits,
+                    }
+                })
             })
-        })
-        .catch(error => {
-            console.log(error)
-        })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+export const addItemToProducts = (product) => (dispatch)=>{
+    console.log('addItemToProducts' )
+dispatch({
+        type: 'ADD_ITEM',
+        payload: product
+    })
+  
 }
+
+export const getItemToProducts = (id)=>(dispatch)=>{
+    axios.get(`http://localhost:8080/api/v1/items/${id}`)
+    .then(res=>{
+     //   console.log('getitemsToProducts' + res.data)
+        dispatch({
+            type:'GET_ITEM',
+            payload:res.data,
+        })
+    })
+    .catch(error => {
+        console.log('GET_ITEM' + error)
+    })
+}
+
+
+
 

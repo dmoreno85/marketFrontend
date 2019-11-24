@@ -11,7 +11,7 @@ function header() {
 
     <div className="navbar-fixed">
  
-      <nav className="green accent-3 ">
+      <nav className="teal darken-4 ">
         <div className="container">
           <div className="nav-wrapper left">
             <Link to="/"className="brand-logo ">MarketPlace</Link>
@@ -24,7 +24,7 @@ function header() {
                  <i className="material-icons right">person_outline</i></Link></li>
             </ul>
             <ul className="dropdown-content" id="id_drop">
-        <li><Link to={"/login/"}>Login</Link></li>
+        <li><Link to="/login/">Login</Link></li>
         <li><Link to="/register">Register</Link></li>
       </ul>
           </div>

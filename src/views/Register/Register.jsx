@@ -1,44 +1,140 @@
 import React from 'react';
-// import {Form, Button, Modal} from 'react-bootstrap'
-// import {Link} from 'react-router-dom'
+// import { Link } from 'react-router-dom'
+import 'materialize-css/dist/css/materialize.min.css'
+
+import { connect } from 'react-redux';
+import { loginUser } from '../../redux/actions/user.action'
 class Register extends React.Component {
-  render() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: "",
+      email: "",
+      password: "",
+      error: "",
+      succes: false,
+    }
+    this.res = this.props.res
 
-    // localStorage.setItem("prop user", "token dsfs")
+  }
+  handleInputUsername = event => {
+    this.setState({
+      username: event.target.value
+    });
+  };
+  handleInputEmail = event => {
+    this.setState({
+      email: event.target.value
+    });
+  };
+
+  handleInputpassword = event => {
+    this.setState({
+      password: event.target.value
+    });
+  };
+  //   componentWillReceiveProps(nextProps){
+  //     if(nextProps.user.login.isAuth){
+  //       this.props.history.push('/user')
+  //     }
+  //   }
+
+  submitForm = async (event) => {
+    event.preventDefault();
+    // this.props.dispatch(loginUser(this.state))
+    this.props.loginUser(this.state.email, this.state.password)
+      .then(() => {
+
+        this.props.history.push('/congrats')
+      }
+      ).catch(() => {
+        // console.log('login invalid');
+        alert('Email or Password invalid')
+
+
+      })
+  };
+
+
+  // login(email, password){
+  //     this.props.getToken(email, password)
+  // }
+
+  render(props) {
+
     return (
-      <div className="register">
-        <h1>REGISTER</h1>
-        {/* <Modal.Dialog>
+      <div className="section container" >
+        <div className="row">
+          <form className="col s12" onSubmit={this.submitForm} >
+            <h3>REGISTER</h3>
+            <div className="row ">
+
+              <div className="input-field col s12 ">
+                <input type="text" id="username" className="validate" value={this.state.username}
+                  onChange={this.handleInputUsername} />
+                <label htmlFor="username">Username</label>
+              </div>
+            </div>
+
+            <div className="row ">
+
+              <div className="input-field col s12 ">
+                <input type="email" id="email" className="validate" value={this.state.email}
+                  onChange={this.handleInputEmail} />
+                <label htmlFor="email">Email</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <input type="password" id="password" className="validate" value={this.state.password}
+                  onChange={this.handleInputpassword} />
+                <label htmlFor="password">Password</label>
+              </div>
+            </div>
+            <div className="row container col s6 ">
+              <button className="btn pink darken-4" type="submit" >Submit</button>
+            </div>
+            {/* <div className="error">{
+                        user.login ?
+                            <div>{user.login.message}</div> : null
+                    }</div> */}
+
+          </form>
+        </div>
 
 
-  <Modal.Body>
-  <Form>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Link to={'/congrats'}>
-  <Button variant="primary" type="submit">
-    Register
-  </Button>
-    </Link>
-</Form>
-  </Modal.Body>
 
- 
-</Modal.Dialog>
-      */}
+
+
+
+
+
+
+
+        {/* <form onSubmit={this.submitForm}>
+                    <h2>Log in here</h2>
+                    <div className="form_element">
+                        <input
+                            type="email"
+                            placeholder="Enter your mail"
+                            value={this.state.email}
+                            onChange={this.handleInputEmail}
+                        />
+                    </div>
+                    <div className="form_element">
+                        <input
+                            type="password"
+                            placeholder="Enter your password"
+                            value={this.state.password}
+                            onChange={this.handleInputpassword}
+                        />
+                    </div>
+                    <button type="submit">Log in</button>
+              
+                </form> */}
+
+
       </div>
 
     );
@@ -46,4 +142,22 @@ class Register extends React.Component {
 
 }
 
-export default Register;
+
+
+const mapStateToProps = state => ({
+  user: state.user
+
+})
+
+
+const mapDispatchToProps = dispatch => ({
+  loginUser: loginUser(dispatch)
+
+
+})
+
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Register);

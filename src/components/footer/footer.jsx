@@ -3,7 +3,7 @@ import React from 'react'
 
 function footer(){
 return (
-  <footer className="page-footer green accent-3 ">
+  <footer className="page-footer teal darken-4 center-align section">
   
     © 2019 Copyright 
    

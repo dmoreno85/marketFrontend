@@ -29,7 +29,7 @@ class AllItems extends React.Component {
     }
 
     render(props) {
-
+ //console.log(this.props.items)
         let filteredItems = this.props.items.filter((item) => {
             return item.model.toLowerCase().includes(this.state.search.toLowerCase())
         })
@@ -51,23 +51,7 @@ class AllItems extends React.Component {
                                     <div className="card-content">
                                         <p>{item.price} €</p>
                                     </div>
-                                    {/* <div className="card-action">
-          <a href="#">This is a link</a>
-        </div> */}
                                 </div>
-
-
-
-
-
-
-                                {/* <Card style={{ width: '18rem' }}  >
-                                <Card.Title>{item.model}</Card.Title>
-                                <Card.Img variant="top" src={item.path} style={{ backgroundSize: 'cover', maxWidth: '115px', height: '200px' }} />
-                                <Card.Body>
-                                    <Card.Text>{item.price} €</Card.Text>
-                                </Card.Body>
-                            </Card> */}
                             </div>
                         </Link>))}
                 </div>

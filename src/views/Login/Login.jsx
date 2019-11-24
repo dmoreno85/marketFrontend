@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import 'materialize-css/dist/css/materialize.min.css'
 
 import { connect } from 'react-redux';
@@ -58,6 +58,7 @@ class Login extends React.Component {
         // let user=this.props.user
         // console.log(this.res)
         return (
+
             <div className="section container" >
                 <div className="row">
                     <form className="col s12" onSubmit={this.submitForm} >
@@ -79,7 +80,7 @@ class Login extends React.Component {
                             </div>
                         </div>
                         <div className="row container col s6 ">
-                            <button className="btn " type="submit" >Submit</button>
+                            <button className="btn pink darken-4" type="submit" >Submit</button>
                         </div>
                         {/* <div className="error">{
                         user.login ?
@@ -88,40 +89,6 @@ class Login extends React.Component {
 
                     </form>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-                {/* <form onSubmit={this.submitForm}>
-                    <h2>Log in here</h2>
-                    <div className="form_element">
-                        <input
-                            type="email"
-                            placeholder="Enter your mail"
-                            value={this.state.email}
-                            onChange={this.handleInputEmail}
-                        />
-                    </div>
-                    <div className="form_element">
-                        <input
-                            type="password"
-                            placeholder="Enter your password"
-                            value={this.state.password}
-                            onChange={this.handleInputpassword}
-                        />
-                    </div>
-                    <button type="submit">Log in</button>
-              
-                </form> */}
-
-
             </div>
 
         );
@@ -139,6 +106,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     loginUser: loginUser(dispatch)
+
 
 
 })
