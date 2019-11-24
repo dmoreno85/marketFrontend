@@ -8,6 +8,9 @@
 .modal{
   overflow: hidden !important;
 }
+.textSize{
+  font-size: 19px ;
+}
 .App > .main {
   flex:1;
 }

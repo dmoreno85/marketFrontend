@@ -52,7 +52,7 @@ export const detailItem = (id) =>
     }
 
 export const addItemToProducts = (product) => (dispatch)=>{
-    console.log('addItemToProducts' )
+ //   console.log('addItemToProducts' )
 dispatch({
         type: 'ADD_ITEM',
         payload: product

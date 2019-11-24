@@ -14,11 +14,11 @@ export const loginUser = (dispatch) => (email, password) => {
         })
 }
 export const userEmail =(dispatch)=>(email)=>{
-    console.log('haciendo axios userEmail')
+   // console.log('haciendo axios userEmail')
   axios.get(`http://localhost:8080/auth/users/${email}`
     )
     .then(res=>{
-              console.log('Dentro de RES userEmail'+ JSON.stringify(res.data));
+         //     console.log('Dentro de RES userEmail'+ JSON.stringify(res.data));
 
         dispatch({
             type: 'GET_USER',

@@ -17,7 +17,7 @@ class DetailsItem extends React.Component {
             succes: false,
             products: [],
         }
-        this.res = this.props.res
+      //  this.res = this.props.res
         // this.product= this.props.data.item
 
     }
@@ -52,7 +52,7 @@ class DetailsItem extends React.Component {
     //     this.props.addItemToProducts(product);
     // }
     handleCarritoClick = (product) => {
-        console.log(JSON.stringify(product));
+     //   console.log(JSON.stringify(product));
         this.props.addItemToProducts(product);
     }
 
@@ -61,7 +61,7 @@ class DetailsItem extends React.Component {
 
         this.setState({ item: this.props.detailItem(this.id) })
 
-        console.log(this.props.match.params)
+       // console.log(this.props.match.params)
     }
     componentDidUpdate(id) {
         getItemToProducts(this.id)
@@ -74,7 +74,7 @@ class DetailsItem extends React.Component {
         return (
 
             <div className="col s12 m7 container center-align">
-                <h2 className="header">Details Product</h2>
+                <h3 className="header">Details Product</h3>
                 <div className="card horizontal hoverable">
                     <div className="card-image">
                         <img src={item.path} className="responsive-img" alt="smartphone" />
@@ -91,7 +91,7 @@ class DetailsItem extends React.Component {
                             <p>In Stock: {item.stockUnits}</p>
                             <p>Price: {item.price} €</p>
                             {/* <button onClick={() => this.handleCarritoClick(this.product)}>Añadir Carrito</button> */}
-                            {console.log(this.props.data)}
+                          {/* {console.log(this.props.data)} */}
                         </div>
                         <div>
                             <Button href="#modal1" className="modal-trigger pink darken-4">PURCHASE</Button>

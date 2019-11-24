@@ -29,6 +29,7 @@ function App(props) {
             <Route path="/congrats/:email" exact component={Congrats} />
             <Redirect path='/' exact to='/allItems/' />
             <Route component={NotFound} />
+            
           </Switch>
         </div>
         <Footer />
