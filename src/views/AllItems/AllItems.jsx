@@ -29,7 +29,6 @@ class AllItems extends React.Component {
     }
 
     render(props) {
- //console.log(this.props.items)
         let filteredItems = this.props.items.filter((item) => {
             return item.model.toLowerCase().includes(this.state.search.toLowerCase())
         })
@@ -41,12 +40,9 @@ class AllItems extends React.Component {
                     {filteredItems.map(item => (
                         <Link to={'/items/' + item.id} key={item.id}>
                             <div className="col s2">
-
-
                                 <div className="card ">
                                     <h6 className="product-title">{item.model}</h6>
                                     <div className="card-image imgCard" style={{ backgroundImage: `url(${item.path})` }}>
-
                                     </div>
                                     <div className="card-content">
                                         <p>{item.price} €</p>
