@@ -75,7 +75,7 @@ class DetailsItem extends React.Component {
 
             <div className="col s12 m7 container center-align">
                 <h2 className="header">Details Product</h2>
-                <div className="card horizontal">
+                <div className="card horizontal hoverable">
                     <div className="card-image">
                         <img src={item.path} className="responsive-img" alt="smartphone" />
                     </div>
